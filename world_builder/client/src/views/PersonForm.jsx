@@ -1,17 +1,14 @@
-import { useNavigate, useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
-import axios from "axios";
-
 import Banner from "../components/Banner";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-
-const LocationEdit = () => {
+const PersonForm = () => {
     const navigate = useNavigate();
-    const {id} = useParams();
 
     const [getter, setter] = useState({
-        title: "",
-        history: "", 
+        name: "",
+        age: "", 
         description: "",
         relationships: "",
         errors: {}
@@ -24,24 +21,13 @@ const LocationEdit = () => {
         }))
     }
 
-    useEffect(() => {
-        axios.get(`http://localhost:9999/api/locations/${id}`)
-        .then((res) => {
-            console.log(res.data);
-            setter(res.data)
-        })
-        .catch((err) => {
-            console.log(err);
-        });
-    }, [id])
-
     const submitHandler = (e) => {
         e.preventDefault();
-        axios.put(`http://localhost:9999/api/locations/${id}`, getter)
+        axios.post("http://localhost:9999/api/persons", getter)
         .then(res => {
             console.log(res);
             console.log(res.data);
-            navigate("/locations");
+            navigate("/");
         })
         .catch(error => {
             console.log(error.response.data.errors);
@@ -57,21 +43,21 @@ const LocationEdit = () => {
         <div>
             <Banner />
             <div className="container">
-                <h2>Update this location!</h2>
+                <h2>Add a person!</h2>
                 <form onSubmit={submitHandler} className="d-flex">
                     <div className="flex-column d-flex p-2">
-                    <label>Title:</label>
-                    <input type="text" name="title" className={getter.errors?.title? "border-danger border" : ""} onChange={(e)=>changeHandler(e)} value={getter.title} />
+                    <label>Name:</label>
+                    <input type="text" name="name" className={getter.errors?.name? "border-danger border" : ""} onChange={(e)=>changeHandler(e)} value={getter.name} />
                     {
-                        getter.errors?.title?
-                        <p className="text-danger"> {getter.errors.title.message} </p>:
+                        getter.errors?.name?
+                        <p className="text-danger"> {getter.errors.name.message} </p>:
                         ""
                     }
-                    <label>History:</label>
-                    <input type="text" name="history" className={getter.errors?.history? "border-danger border" : ""} onChange={(e)=>changeHandler(e)} value={getter.history} />
+                    <label>Age:</label>
+                    <input type="number" name="age" className={getter.errors?.age? "border-danger border" : ""} onChange={(e)=>changeHandler(e)} value={getter.age} />
                     {
-                        getter.errors?.history?
-                        <p className="text-danger"> {getter.errors.history.message} </p>:
+                        getter.errors?.age?
+                        <p className="text-danger"> {getter.errors.age.message} </p>:
                         ""
                     }
                     <label>Description:</label>
@@ -98,4 +84,4 @@ const LocationEdit = () => {
     )
 }
 
-export default LocationEdit;
+export default PersonForm;

@@ -6,6 +6,7 @@ import dotenv from 'dotenv';
 //Import middleware and dbConnect functions
 import dbConnect from './config/mongoose.config.js';
 import locationRouter from './routes/location.routes.js';
+import personRouter from './routes/person.routes.js';
 
 //Pull environment variables
 dotenv.config();
@@ -16,7 +17,7 @@ const PORT = process.env.PORT;
 
 //Attach middleware to our express instance 
 app.use(express.json(), cors());
-app.use("/api", locationRouter);
+app.use("/api", locationRouter, personRouter);
 app.use(cors());
 
 //Establish connection to MongoDB

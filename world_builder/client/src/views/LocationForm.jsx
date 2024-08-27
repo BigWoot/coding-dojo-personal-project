@@ -27,7 +27,7 @@ const LocationForm = () => {
         .then(res => {
             console.log(res);
             console.log(res.data);
-            navigate("/locations");
+            navigate("/");
         })
         .catch(error => {
             console.log(error.response.data.errors);

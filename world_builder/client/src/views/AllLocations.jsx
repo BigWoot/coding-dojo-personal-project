@@ -1,9 +1,9 @@
-import Location from "../../../server/models/location.model";
 import Banner from "../components/Banner";
 
 import { useState, useEffect } from "react";
 import axios from 'axios';
 import { Link } from "react-router-dom";
+import NewArticleSection from "../components/NewArticleSection";
 
 const AllLocations = () => {
     const [locations, setLocations] = useState([]);
@@ -23,12 +23,14 @@ const AllLocations = () => {
         <div>
             <Banner />
             <div>
+                <h2>Locations</h2>
                 <ul>
                     {locations.map((location, index) => (
                         <li key={index}><Link  to={`${location._id}/details`}>{location.title}</Link></li>
                     ))}
                 </ul>
             </div>
+            <NewArticleSection />
         </div>
     )
 }
