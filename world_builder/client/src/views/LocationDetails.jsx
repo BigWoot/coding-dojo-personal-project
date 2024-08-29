@@ -25,12 +25,12 @@ const LocationDetails = () => {
         axios.delete(`http://localhost:9999/api/locations/${id}`)
         .then((res) => {
             console.log(res.data);
-            navigate("/locations");
+            navigate("/");
         })
     }
 
     return(
-        <div>
+        <div className="bg-light bg-gradient root">
             <Banner className="align-items-start"/>
             <div className="container d-flex justify-content-between">
                 <h2>{location.title}</h2>

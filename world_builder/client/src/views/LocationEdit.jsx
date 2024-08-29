@@ -41,7 +41,7 @@ const LocationEdit = () => {
         .then(res => {
             console.log(res);
             console.log(res.data);
-            navigate("/locations");
+            navigate("/");
         })
         .catch(error => {
             console.log(error.response.data.errors);
@@ -54,7 +54,7 @@ const LocationEdit = () => {
     }
 
     return(
-        <div>
+        <div className="bg-light bg-gradient root">
             <Banner />
             <div className="container">
                 <h2>Update this location!</h2>

@@ -29,6 +29,7 @@ function App() {
           {/*Handle routes for races*/}
           {/*Handle routes for events*/}
           {/*Handle routes for items*/}
+          {/*Handle routes for settlements*/}
         </Routes>
       </BrowserRouter>
     </>

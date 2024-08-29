@@ -40,7 +40,7 @@ const LocationForm = () => {
     }
 
     return(
-        <div>
+        <div className="bg-light bg-gradient root">
             <Banner />
             <div className="container">
                 <h2>Add a location!</h2>

@@ -25,12 +25,12 @@ const PersonDetails = () => {
         axios.delete(`http://localhost:9999/api/persons/${id}`)
         .then((res) => {
             console.log(res.data);
-            navigate("/persons");
+            navigate("/");
         })
     }
 
     return(
-        <div>
+        <div className="bg-light bg-gradient root">
             <Banner className="align-items-start"/>
             <div className="container d-flex justify-content-between">
                 <h2>{person.name}</h2>

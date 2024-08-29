@@ -29,34 +29,34 @@ const Home = () => {
     }, [])
 
     return(
-        <div>
+        <div className="bg-light bg-gradient root">
             <Banner />
-            <div className="container d-flex justify-content-around">
+            <div className="container d-flex justify-content-between">
                 <div>
                     <h2>Locations</h2>
-                    <ul>
+                    <ul className="list-group">
                         {locations.map((location, index) => (
-                            <li key={index}><Link  to={`/locations/${location._id}/details`}>{location.title}</Link></li>
+                            <li key={index} className="list-group-item border border-warning bg-secondary"><Link  to={`/locations/${location._id}/details`} className="link-warning">{location.title}</Link></li>
                         ))}
                     </ul>
                 </div>
                 <div>
                     <h2>People</h2>
-                    <ul>
+                    <ul className="list-group">
                         {persons.map((person, index) => (
-                            <li key={index}><Link  to={`/persons/${person._id}/details`}>{person.name}</Link></li>
+                            <li key={index} className="list-group-item border border-warning bg-secondary"><Link  to={`/persons/${person._id}/details`}  className="link-warning">{person.name}</Link></li>
                         ))}
                     </ul>
                 </div>
                 <div>
                     <h2>Countries</h2>
-                    <ul>
+                    <ul className="list-group">
 
                     </ul>
                 </div>
                 <div>
                     <h2>Religions</h2>
-                    <ul>
+                    <ul className="list-group">
 
                     </ul>
                 </div>

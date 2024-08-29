@@ -53,7 +53,7 @@ const PersonEdit = () => {
     }
 
     return(
-        <div>
+        <div className="bg-light bg-gradient root">
             <Banner />
             <div className="container">
                 <h2>Update this person!</h2>

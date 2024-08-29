@@ -6,7 +6,7 @@ const NewArticlePanel = (props) => {
 
     return (
         <div>
-            <Link to={linkDestination} className="link-light d-flex flex-column align-items-center mx-4 bg-dark p-2"><img className="panel-image" src={imageVar} alt={imageVar} />{linkName}</Link>
+            <Link to={linkDestination} className="link-dark d-flex flex-column align-items-center mx-4 bg-warning p-2 border border-2 border-dark"><img className="panel-image" src={imageVar} alt={imageVar} />{linkName}</Link>
         </div>
     )
 }
